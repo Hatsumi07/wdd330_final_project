@@ -13,12 +13,12 @@ function limitDescription(description) {
 function recipeCardTemplate(recipe) {
     return `
     <li class="recipe" data-id=${recipe.id}>
-        <img src=${recipe.thumbnail_url}>
+        <a href="/recipe_pages/index.html?recipe=${recipe.id}"><img src=${recipe.thumbnail_url}>
         <h2>${recipe.name}</h2>
         <p>${limitDescription(recipe.description)}...</p>
         <button class="green-btn add-recipe-btn">
            <!-- <img src="/images/add-recipe-icon.png"> -->
-        </button>
+        </button></a>
     </li>`;
 }
 export default class RecipeList {

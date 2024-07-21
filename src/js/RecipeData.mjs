@@ -7,7 +7,7 @@ function convertToJson(res) {
   }
 }
 
-export default class ProductData {
+export default class RecipeData {
   constructor() {
   }
   async getData() {
@@ -22,7 +22,7 @@ export default class ProductData {
         };
         const response = await fetch(url, options);
         const data = await convertToJson(response);
-        return data.results
+        return data.results;
     } catch {
       console.log("Error fetching data: ", error);
     }

@@ -139,6 +139,11 @@ header {
     cursor: pointer;
     text-align: center;
 }
+.recipe a {
+    text-align: center;
+    text-decoration: none;
+    color: var(--font-color-one);
+}
 .recipe img {
     width: 80px;
     border-radius: 50%;
@@ -153,6 +158,40 @@ header {
     height: 2em;
 }
 
+#recipe-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#recipe-details .main-img {
+    width: 100%;
+}
+#recipe-details >* {
+    width: 100%;
+    max-width: 500px;
+}
+#recipe-details .name {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+}
+#info {
+    display: flex;
+    justify-content: flex-end;
+}
+#info >* {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: var(--font-color-two);
+}
+#info img {
+    width: 100%;
+}
 @media only screen and (min-width: 768px) {
     .favorites img {
         width: 50px;
