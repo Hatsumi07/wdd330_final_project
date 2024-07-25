@@ -16,20 +16,25 @@ export default class RecipeData {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'fbd67d2c6emsha591a205fd69c3bp1a4f1cjsn105a8f5193c6',
-                'x-rapidapi-host': 'tasty.p.rapidapi.com'
+                'x-rapidapi-key': '1aff26895cmsh06f0d822468b8efp1377bdjsn38be06299bd2',
+		            'x-rapidapi-host': 'tasty.p.rapidapi.com'
             }
         };
         const response = await fetch(url, options);
         const data = await convertToJson(response);
-        return data.results;
-    } catch {
+        const results = data.results;
+        const endResults = [];
+
+        results.map( recipe => {
+          // Adds isFavorite attribute to recipe object
+          endResults.push({...recipe, isFavorite: false}); 
+        });
+        
+        return endResults;
+    } 
+    
+    catch {
       console.log("Error fetching data: ", error);
     }
   }
-//   async findProductById(id) {
-//     const response = await fetch(`${baseURL}product/${id}`)
-//     const product = await convertToJson(response);
-//     return product.Result;
-//   }
 }

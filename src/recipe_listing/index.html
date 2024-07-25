@@ -10,6 +10,15 @@
 <body>
     <header id="main-header"></header>
     <h1>Recipe Listing</h1>
+    <aside id="products-filters">
+        <h2>Filters:</h2>
+        <h3>Coose Category:</h3>
+        <select>
+        <option value="category1" selected>All</option>
+        <option value="category1">category1</option>
+        <option value="category1">category1</option>
+       </select>
+    </aside>
     <section class="recipes-list">
         <ul>
             <li class="recipe">
@@ -20,46 +29,8 @@
                     <!-- <img src="/images/add-recipe-icon.png"> -->
                 </button>
             </li>
-            <li class="recipe">
-                <img src="/images/top-recipe-placeholder.webp">
-                <h2>Recipe</h2>
-                <p>A description of a recipe a description of a recipe.</p>
-                <button class="green-btn add-recipe-btn">
-                    <!-- <img src="/images/add-recipe-icon.png"> -->
-                </button>
-            </li>
-            <li class="recipe">
-                <img src="/images/top-recipe-placeholder.webp">
-                <h2>Recipe</h2>
-                <p>A description of a recipe a description of a recipe.</p>
-                <button class="green-btn add-recipe-btn">
-                    <!-- <img src="/images/add-recipe-icon.png"> -->
-                </button>
-            </li>            <li class="recipe">
-                <img src="/images/top-recipe-placeholder.webp">
-                <h2>Recipe</h2>
-                <p>A description of a recipe a description of a recipe.</p>
-                <button class="green-btn add-recipe-btn">
-                    <!-- <img src="/images/add-recipe-icon.png"> -->
-                </button>
-            </li>
-            <li class="recipe">
-                <img src="/images/top-recipe-placeholder.webp">
-                <h2>Recipe</h2>
-                <p>A description of a recipe a description of a recipe.</p>
-                <button class="green-btn add-recipe-btn">
-                    <!-- <img src="/images/add-recipe-icon.png"> -->
-                </button>
-            </li>
-            <li class="recipe">
-                <img src="/images/top-recipe-placeholder.webp">
-                <h2>Recipe</h2>
-                <p>A description of a recipe a description of a recipe.</p>
-                <button class="green-btn add-recipe-btn">
-                    <!-- <img src="/images/add-recipe-icon.png"> -->
-                </button>
-            </li>
         </ul>
+        <button id="load-more" class="green-btn">Load More</button>
     </section>
     <footer id="main-footer"></footer>
 </body>
