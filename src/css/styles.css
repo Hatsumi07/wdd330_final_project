@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 :root {  /* Define variables with global scope */
     --primary-color: #5AA518;
     --font-color-one: #010101;
@@ -5,7 +6,9 @@
     --background-color-main: #F9F9F7;
     --light-green: #98CB5E;
   }
-
+body {
+    font-family: "Inter", sans-serif;
+}
 .recipes-list #placeholder-recipes-list {
     padding: 20px;
     list-style: none;
@@ -311,6 +314,11 @@ header {
 @media only screen and (min-width: 768px) {
     .favorites img {
         width: 50px;
+        transform: rotate(0deg);
+        transition: transform 0.3s ease-in-out;
+    }
+    .favorites img:hover {
+        transform: rotate(25deg);
     }
     .banner {
         background-image: url("/images/banner-img-small.jpg");
