@@ -14,7 +14,6 @@ function isLowCarb(topics) {
   const regex = /low.*carb|carb.*low/i;
   const slugs = topics.map(topic => topic.slug);
   const islowcarb = slugs.find(slug => regex.test(slug));
-  // const splitString = myString.split(/[\s,-]/);
   if (islowcarb === undefined) {
     return false;
   }
@@ -46,7 +45,10 @@ export default class RecipeList {
   }
   async init() {
     try {
+      const loadingIndicator = document.querySelector("#placeholder-recipes-list");
+      loadingIndicator.style.display = 'grid';
       this.recipes = await this.dataSource.getData();
+      loadingIndicator.style.display = 'none';
       this.renderRecipes();
 
       setClickAll(".add-recipe-btn", e => {
@@ -60,32 +62,32 @@ export default class RecipeList {
  }
 
  addToFavorites(e) {
-  const favRecipe = this.recipes.find(recipe => recipe.id == e.target.dataset.id);
+  e.target.classList.add("btn-clicked");
+  const recipe = this.recipes.find(recipe => recipe.id == e.target.dataset.id);
   const favRecipes = getLocalStorage("favorite-recipes") || [];
-  favRecipes.push(favRecipe);
-  setLocalStorage("favorite-recipes", favRecipes);
+  const recipesId = favRecipes.flatMap(item => item.id);
+  const alreadyFav = recipesId.includes(recipe.id);
+  console.log(alreadyFav);
+  if(recipesId.includes(recipe.id)) {
+    setTimeout(() => {
+      e.target.classList.remove("btn-clicked");
+      alert("Recipe already saved!");
+    }, 250);
+  } else {
+    setTimeout(() => {
+      e.target.classList.remove("btn-clicked");
+      favRecipes.push(recipe);
+      setLocalStorage("favorite-recipes", favRecipes);
+    }, 250);
+  }
 }
-
- loadMoreProducts() {
-  setClick("#load-more", function(e) {
-
-  });
- }
 
  getCategories(list) {
   const topics = list.flatMap(item => item.topics);
   const Slugs = topics.flatMap(item => item.slug);
-  // return Slugs;
   return [...new Set(Slugs)];
   }
 
- filterProducts(list) {
-   // Array of IDs of the four products we want to display
-   const productIdsToShow = ["880RR", "985RF", "985PR", "344YJ"];
-   // Filter the list to include only those products with matching IDs
-   return list.filter(product => productIdsToShow.includes(product.Id));
- }
-  // render after doing the first stretch
   renderRecipes() {
     renderListWithTemplate(recipeCardTemplate, this.listElement, this.recipes);
   }

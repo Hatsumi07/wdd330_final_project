@@ -3,13 +3,12 @@ import { getLocalStorage, renderListWithTemplate, setClickAll, setLocalStorage }
 function favRecipesTemplate(recipe) {
     return `
     <li class="recipe" data-id=${recipe.id}>
-        <span id="remove-recipe" data-id="${recipe.id}">X</span>
+        <span id="remove-recipe" data-id="${recipe.id}"></span>
         <a href="/recipe_pages/index.html?recipe=${recipe.id}">
             <img src="${recipe.thumbnail_url}" alt="${recipe.name}"/>
             <h2>${recipe.name}</h2>
         </a>
     </li>`;
-  return newItem;
 }
 
 export default class FavRecipes {

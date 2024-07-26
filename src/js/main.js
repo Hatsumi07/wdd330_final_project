@@ -1,4 +1,4 @@
-import { setClickAll } from "./utils.mjs";
+import { loadHeaderFooter, setClickAll } from "./utils.mjs";
 async function getRecipe() {
     const url = 'https://tasty.p.rapidapi.com/recipes/list?from=-10&size=20&tags=under_30_minutes';
     const options = {
@@ -22,7 +22,8 @@ getRecipe();
 setClickAll(".top-recipe", function() {
     window.location.href = "/recipe_pages/index.html";
 });
-setClickAll(".find-recipes", function() {
+setClickAll(".find-recipes", e => {
     window.location.href = "/recipe_listing/index.html";
 });
+loadHeaderFooter();
 console.log("URL", window.location.href);
